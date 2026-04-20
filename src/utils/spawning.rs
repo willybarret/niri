@@ -134,6 +134,9 @@ fn spawn_sync(
         process.env_remove("RUST_LIB_BACKTRACE");
     }
 
+    // Remove the systemd NOTIFY_SOCKET variable.
+    process.env_remove("NOTIFY_SOCKET");
+
     // Set DISPLAY if needed.
     let display = CHILD_DISPLAY.read().unwrap();
     if let Some(display) = &*display {
